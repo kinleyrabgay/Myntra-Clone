@@ -16,7 +16,9 @@ class ProfilePage extends StatelessWidget {
           style: Theme.of(context).textTheme.titleLarge,
         ),
       ),
-      body: const ProfileWithoutLogin(),
+      body: const SingleChildScrollView(
+        child: ProfileWithoutLogin(),
+      ),
     );
   }
 }

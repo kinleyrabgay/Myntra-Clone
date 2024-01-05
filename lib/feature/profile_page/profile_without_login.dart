@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:myntra/feature/profile_page/footer_content.dart';
+import 'package:myntra/foundation/constants/constants.dart';
 import 'package:myntra/foundation/profile/profile_item.dart';
 import 'package:myntra/foundation/theme/colors.dart';
 
@@ -29,46 +31,36 @@ class ProfileWithoutLogin extends StatelessWidget {
         const SizedBox(height: 15),
         Container(
           color: AppColor.whiteColor,
-          child: const Column(
+          child: Column(
             children: [
-              ProfileItem(
-                assetName: 'orders.png',
-                title: 'Orders',
-                subtitile: 'Track your orders',
-                isLast: false,
-              ),
-              ProfileItem(
-                assetName: 'wishlist.png',
-                title: 'Help Center',
-                subtitile: 'Help regarding your recent purchase',
-                isLast: false,
-              ),
-              ProfileItem(
-                assetName: 'wishlist.png',
-                title: 'WishList',
-                subtitile: 'Your wishlist',
-                isLast: true,
-              ),
+              for (var item in items)
+                ProfileItem(
+                  assetName: item.assetName,
+                  title: item.title,
+                  subtitile: item.subtitle,
+                  isLast: item.isLast,
+                ),
             ],
           ),
         ),
         const SizedBox(height: 15),
         Container(
           color: AppColor.whiteColor,
-          child: const Column(
+          child: Column(
             children: [
-              ProfileItem(
-                assetName: 'orders.png',
-                title: 'Scan for coupons',
-                isLast: false,
-              ),
-              ProfileItem(
-                assetName: 'wishlist.png',
-                title: 'Help Center',
-                isLast: true,
-              ),
+              for (var item in backup)
+                ProfileItem(
+                  assetName: item.assetName,
+                  title: item.title,
+                  subtitile: item.subtitle,
+                  isLast: item.isLast,
+                ),
             ],
           ),
+        ),
+        const SizedBox(height: 15),
+        Container(
+          child: FooterProfile(),
         )
       ],
     );

@@ -20,24 +20,32 @@ class ProfileItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        ListTile(
-          leading: SPIcon(
-            assetname: assetName,
-          ),
-          title: Text(
-            title,
-            style: Theme.of(context).textTheme.bodyLarge,
-          ),
-          subtitle: subtitile != null
-              ? Text(
-                  subtitile!,
-                  style: Theme.of(context).textTheme.bodySmall,
-                )
-              : null,
-          trailing: const Icon(
-            CupertinoIcons.chevron_forward,
-            size: 20,
-            color: Colors.grey,
+        Material(
+          color: Colors.white,
+          child: InkWell(
+            onTap: () {
+              // print('object $title');
+            },
+            child: ListTile(
+              leading: SPIcon(
+                assetname: assetName,
+              ),
+              title: Text(
+                title,
+                style: Theme.of(context).textTheme.bodyLarge,
+              ),
+              subtitle: subtitile != null
+                  ? Text(
+                      subtitile!,
+                      style: Theme.of(context).textTheme.bodySmall,
+                    )
+                  : const SizedBox.shrink(),
+              trailing: const Icon(
+                CupertinoIcons.chevron_forward,
+                size: 16,
+                color: Colors.grey,
+              ),
+            ),
           ),
         ),
         if (!isLast)
